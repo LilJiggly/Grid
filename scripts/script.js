@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Generate the list of images
     const images = [];
-    const totalImages = 500; // Adjust this to the maximum number of images you have
+    const totalImages = 5; // Adjust this to the maximum number of images you have
 
     for (let i = 1; i <= totalImages; i++) {
         const imgSrc = `images/image${i}.jpg`;
