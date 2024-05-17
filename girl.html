@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">
+            Home
+        </a>
+    </nav>
+
+
+    <div class="gallery" id="gallery"></div>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+        <div class="counter" id="counter">
+            <input type="number" id="imageIndex" min="1" step="1">
+            <span id="totalImages"></span>
+        </div>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
