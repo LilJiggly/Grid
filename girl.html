@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">
-            Home
-        </a>
-    </nav>
-
-
     <div class="gallery" id="gallery"></div>
 
     <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <span class="prev">&#10094;</span>
-        <span class="next">&#10095;</span>
+        <div class="controls">
+        
         <div class="counter" id="counter">
             <input type="number" id="imageIndex" min="1" step="1">
             <span id="totalImages"></span>
         </div>
+
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+        <span class="close">&times;</span>
+
+        <div class="tap-area left-area"></div>
+        <div class="tap-area right-area"></div>
+
+        </div>
         <img class="modal-content" id="modalImage">
+        <div class="tap-tip">Tap the left or right side of the screen or use the arrow keys.</div>
     </div>
 
     <script src="./scripts/script.js"></script>

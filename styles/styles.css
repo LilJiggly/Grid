@@ -5,18 +5,12 @@ body {
     color: white;
 }
 
-nav {
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
     padding: 10px;
+    grid-auto-flow: dense;  /* Fill in the gaps */
 }
 
 .gallery img {
@@ -32,6 +26,11 @@ nav {
     transform: scale(1.01);
 }
 
+/* Lock background scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -39,23 +38,36 @@ nav {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
-    overflow: auto;
+    height: 100vh;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .modal-content {
     margin: auto;
     display: block;
     height: auto;
-    max-height: 90%;
+    max-height: 80%;
     max-width: 90%;
     border-radius: 1em;
 }
 
-.close, .prev, .next {
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 1.5em;
+    background-color: white;
+    border-radius: 0.5em;
+    width: fit-content;
+    margin-top: 1em;
+}
+
+/* .close, .prev, .next {
     position: absolute;
     color: black;
     font-size: 40px;
@@ -113,4 +125,91 @@ nav {
     font-size: 1em;
     background-color: transparent;
     -webkit-appearance: none;
+} */
+
+.counter, .prev, .next, .close {
+    margin: 0 0.3em;
 }
+
+.close, .prev, .next {
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.close:hover, .prev:hover, .next:hover {
+    color: #bbb;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+#counter input {
+    width: 2em;
+    border: none;
+    font-size: 1em;
+    background-color: transparent;
+    -webkit-appearance: none;
+    text-align: center;
+}
+
+.tap-tip {
+    margin-bottom: 2em;
+}
+
+.tap-area {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 5;
+}
+
+.left-area {
+    left: 0;
+    top:4em;
+}
+
+.right-area {
+    right: 0;
+    top:4em;
+}
+
+
+
+.grid-item {
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
+    display: flex; /* Use flex to center the image */
+    align-items: center; /* Align items vertically center */
+    justify-content: center; /* Align items horizontally center */
+}
+
+
+
+
+
+
+
+
+/* Hide next and prev buttons on touch devices */
+body.touch-device .prev, 
+body.touch-device .next {
+    display: none;
+}
+
+/* Remove spinners in Webkit browsers (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove spinners in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
